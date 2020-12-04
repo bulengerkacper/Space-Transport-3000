@@ -1,6 +1,7 @@
 mod world;
-use crate::world::generator::Creation;
+use crate::world::generator::Visibility;
 use crate::world::generator::Map;
+use crate::world::generator::Element;
 
 
 fn main() {

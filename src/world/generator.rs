@@ -1,9 +1,4 @@
-// pub fn create_map() {
-//     println!("Shape of you");
-// }
-
-pub trait Creation {
-    fn create() -> Self;
+pub trait Visibility {
     fn make_visible() -> bool {
         println!("I am visible");
         true
@@ -16,8 +11,29 @@ pub struct Map {
     pub z: u128,
 }
 
-impl Creation for Map {
-    fn create() -> Map {
+impl Map {
+    pub fn create() -> Map {
         Map{x:1,y:1,z:1}
     }
+}
+
+impl Visibility for Map {
+
+}
+
+pub struct Element {
+    pub size_x: u32,
+    pub size_y: u32,
+    pub begin_of_drawing_x: u32,
+    pub begin_of_drawing_y: u32, 
+}
+
+impl Element {
+    pub fn create(x_size: u32,y_size: u32,begin_x: u32,begin_y: u32) -> Element {
+        Element{size_x:x_size,size_y:y_size,begin_of_drawing_x:begin_x,begin_of_drawing_y:begin_y}
+    }
+}
+
+impl Visibility for Element {
+
 }
