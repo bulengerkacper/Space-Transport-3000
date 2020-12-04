@@ -1,5 +1,5 @@
 pub trait Visibility {
-    fn make_visible() -> bool {
+    fn make_visible(&self) -> bool {
         println!("I am visible");
         true
     }
@@ -18,7 +18,10 @@ impl Map {
 }
 
 impl Visibility for Map {
-
+    fn make_visible(&self) -> bool {
+        println!("I am there");
+        true
+    }
 }
 
 pub struct Element {
