@@ -20,9 +20,13 @@ fn main() {
     // let texture_1 = include_bytes!("./resources/1.png");
     // cube.set_texture_from_memory(texture_1, "texture_1");
 
-    let earth_obj = Path::new("./src/resources/earth.obj");
+    let earth_obj = Path::new("./src/resources/textures/earth.obj");
     let earth_mtl = Path::new("./src/resources/textures");
-    let mut earth = window.add_obj(&earth_obj, &earth_mtl, Vector3::new(0.1, 0.1, 0.1));
+    let cyber_gnat_obj = Path::new("./src/resources/gun.obj");
+    // let mut earth = window.add_obj(&earth_obj, &earth_mtl, Vector3::new(0.1, 0.1, 0.1));
+    let mut cyber_gnat = window.add_obj(&cyber_gnat_obj, &cyber_gnat_obj, Vector3::new(0.2,0.2,0.2));
+    cyber_gnat.append_translation(&Translation3::new(-1.75, -3.00, 0.3));
+
     while window.render() {
         // cube.add_rotation_in_axis(0.01, 'x');
     }
