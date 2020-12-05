@@ -20,7 +20,7 @@ impl Map {
 
 impl Visibility for Map {
     fn make_visible(&self, can_be_seen: bool) -> bool {
-        if (can_be_seen) {
+        if can_be_seen {
         } else {
         }
         true
@@ -47,7 +47,7 @@ impl Element {
 
 impl Visibility for Element {
     fn make_visible(&self, can_be_seen: bool) -> bool {
-        if (can_be_seen) {
+        if can_be_seen {
         } else {
         }
         true

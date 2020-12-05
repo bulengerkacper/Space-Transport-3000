@@ -16,7 +16,7 @@ impl VisualEngine {
     }
 }
 
-trait Move {
+pub trait Move {
     fn add_rotation_in_axis(&mut self, speed: f32, axis: char);
 }
 
