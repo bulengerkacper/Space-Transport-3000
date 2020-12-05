@@ -1,7 +1,6 @@
 use kiss3d;
 use nalgebra as na;
 
-use kiss3d::light::Light;
 use kiss3d::scene::SceneNode;
 use kiss3d::window::Window;
 use na::{UnitQuaternion, Vector3};
