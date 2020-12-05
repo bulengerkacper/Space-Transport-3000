@@ -8,10 +8,10 @@ use na::{UnitQuaternion, Vector3};
 pub struct VisualEngine {}
 
 impl VisualEngine {
-    pub fn create_window(name: &str, x: kiss3d::light::Light,r:f32,g:f32,b:f32) -> Window {
+    pub fn create_window(name: &str, x: kiss3d::light::Light, r: f32, g: f32, b: f32) -> Window {
         let mut window = Window::new(name);
         window.set_light(x);
-        window.set_background_color(r,g,b);
+        window.set_background_color(r, g, b);
         window
     }
 }
@@ -32,3 +32,21 @@ impl Move for SceneNode {
         self.prepend_to_local_rotation(&rot);
     }
 }
+
+// Slabizna rusta
+// Macros run before name resolution, so there's no way for include_bytes! to use with path param
+
+// pub trait Design {
+//     fn add_texture(&mut self, name: &str, path: &str);
+// }
+
+// // problem with dynamic loading of resources
+// impl Design for SceneNode {
+//     fn add_texture(&mut self, name: &str, path: &str) {
+//         unsafe {
+//             let texture_1 = include_bytes!(path);
+//             self.set_texture_from_memory(texture_1, name);
+//         }
+
+//     }
+// }
