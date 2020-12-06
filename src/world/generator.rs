@@ -1,11 +1,10 @@
+use crate::world::graphic::Move;
 use kiss3d::scene::SceneNode;
 use kiss3d::window::Window;
+use na::{Translation3, Vector3};
 use rand::Rng;
 use std::collections::LinkedList;
 use std::path::Path;
-use na::{Translation3, Vector3};
-use crate::world::graphic::Move;
-
 
 pub fn create_spaceship(window: &mut Window) -> SceneNode {
     let space_ship_obj = Path::new("../resources/spaceship/statek.obj");
