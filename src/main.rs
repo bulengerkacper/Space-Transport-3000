@@ -15,10 +15,10 @@ fn main() {
     );
 
     let _space_ship = generator::create_spaceship(&mut window);
-    let planets = generator::generate_plantes(100, &mut window);
+    let mut planets = generator::generate_plantes(40, &mut window);
     while window.render() {
-        for planet in planets.iter() {
-            planet.add_rotation_in_axis(0.01, 'x');
+        for planet in &mut planets {
+            planet.add_rotation_in_axis(0.001, 'x');
         }
     }
 }

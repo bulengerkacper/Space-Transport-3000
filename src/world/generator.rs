@@ -7,7 +7,7 @@ use std::collections::LinkedList;
 use std::path::Path;
 
 pub fn create_spaceship(window: &mut Window) -> SceneNode {
-    let space_ship_obj = Path::new("../resources/spaceship/statek.obj");
+    let space_ship_obj = Path::new("./src/resources/spaceship/statek.obj");
     let mut space_ship = window.add_obj(
         &space_ship_obj,
         &space_ship_obj,
@@ -33,7 +33,7 @@ pub fn generate_plantes(planet_number: u32, window: &mut Window) -> LinkedList<S
         sphere.append_translation(&Translation3::new(
             rng.gen_range(-15.0, 15.0),
             rng.gen_range(-10.0, 10.0),
-            rng.gen_range(-15.0, 15.0),
+            rng.gen_range(-8.0, 8.0),
         ));
         n += 1;
         planets.push_back(sphere);
