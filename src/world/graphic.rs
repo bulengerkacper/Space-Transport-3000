@@ -4,7 +4,7 @@ use nalgebra as na;
 use kiss3d::scene::SceneNode;
 use kiss3d::window::Window;
 use na::{UnitQuaternion, Vector3};
-
+// here i wrote parts which can be used in future as separate crate
 pub struct VisualEngine {}
 
 impl VisualEngine {
@@ -32,21 +32,3 @@ impl Move for SceneNode {
         self.prepend_to_local_rotation(&rot);
     }
 }
-
-// Slabizna rusta
-// Macros run before name resolution, so there's no way for include_bytes! to use with path param
-
-// pub trait Design {
-//     fn add_texture(&mut self, name: &str, path: &str);
-// }
-
-// // problem with dynamic loading of resources
-// impl Design for SceneNode {
-//     fn add_texture(&mut self, name: &str, path: &str) {
-//         unsafe {
-//             let texture_1 = include_bytes!(path);
-//             self.set_texture_from_memory(texture_1, name);
-//         }
-
-//     }
-// }
