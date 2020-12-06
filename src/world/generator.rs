@@ -13,9 +13,8 @@ pub fn create_spaceship(window: &mut Window) -> SceneNode {
         &space_ship_obj,
         Vector3::new(0.2, 0.2, 0.2),
     );
-    space_ship.append_translation(&Translation3::new(0.0, 0.0, 4.0));
-    space_ship.append_translation(&Translation3::new(0.0, -1.5, 0.0));
-    space_ship.add_rotation_in_axis(3.15, 'y');
+    space_ship.append_translation(&Translation3::new(0.0, -1.3, 4.0));
+    // space_ship.add_rotation_in_axis(1.0, 'y');
     let metal_texture = include_bytes!("../resources/textures/metal_texture.png");
     space_ship.set_texture_from_memory(metal_texture, "metal_texture");
     space_ship
@@ -31,9 +30,9 @@ pub fn generate_plantes(planet_number: u32, window: &mut Window) -> LinkedList<S
         let sphere_texture = include_bytes!("../resources/textures/sphere_texture.png");
         sphere.set_texture_from_memory(sphere_texture, "sphere_texture");
         sphere.append_translation(&Translation3::new(
-            rng.gen_range(-15.0, 15.0),
-            rng.gen_range(-10.0, 10.0),
-            rng.gen_range(-8.0, 8.0),
+            rng.gen_range(-2.0, 2.0),
+            rng.gen_range(-5.0, 5.0),
+            rng.gen_range(-5.0, 5.0),
         ));
         n += 1;
         planets.push_back(sphere);
