@@ -48,14 +48,14 @@ fn main() {
             }
         }
         speed_of_plantes -= 0.00001;
-        let points = format!("{:.7} of c", speed_of_plantes.abs());
+        let points = format!("{:.7} of c\nSTERING\n  W \n ASD\n QE", speed_of_plantes.abs());
         let pts :&str= &points[..];
         window.draw_text(
             pts,
             &Point2::new(43.0, 43.0),
             90.0,
             &font,
-            &Point3::new(10.0, 0.0, 0.0),
+            &Point3::new(10.0, 200.0, 0.0),
         );
         if generator::move_planets(&space_ship, &mut planets, speed_of_plantes) {
             speed_of_plantes=0.0;
