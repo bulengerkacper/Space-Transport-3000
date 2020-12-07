@@ -76,7 +76,7 @@ impl Move for SceneNode {
                 .translation
                 .vector
                 .x
-            <= 1.0
+            <= 0.5
             && self.data().local_transformation().translation.vector.x
                 - flying_object
                     .data()
@@ -84,7 +84,7 @@ impl Move for SceneNode {
                     .translation
                     .vector
                     .x
-                >= 0.00
+                >= -0.50
             && self.data().local_transformation().translation.vector.y
                 - flying_object
                     .data()
@@ -92,7 +92,7 @@ impl Move for SceneNode {
                     .translation
                     .vector
                     .y
-                <= 1.0
+                <= 0.5
             && self.data().local_transformation().translation.vector.y
                 - flying_object
                     .data()
@@ -100,7 +100,7 @@ impl Move for SceneNode {
                     .translation
                     .vector
                     .y
-                >= 0.00
+                >= -0.50
             && self.data().local_transformation().translation.vector.z
                 - flying_object
                     .data()
@@ -108,7 +108,7 @@ impl Move for SceneNode {
                     .translation
                     .vector
                     .z
-                <= 1.0
+                <= 0.5
             && self.data().local_transformation().translation.vector.z
                 - flying_object
                     .data()
@@ -116,7 +116,7 @@ impl Move for SceneNode {
                     .translation
                     .vector
                     .z
-                >= 1.0
+                >= -0.5
         {
             println!("collision detected");
             quit::with_code(1);
