@@ -48,7 +48,7 @@ fn main() {
             }
         }
         speed_of_plantes -= 0.00001;
-        let points = format!("{:.7}", speed_of_plantes.abs());
+        let points = format!("{:.7} of c", speed_of_plantes.abs());
         let pts :&str= &points[..];
         window.draw_text(
             pts,
