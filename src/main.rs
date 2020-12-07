@@ -37,9 +37,8 @@ fn main() {
                 WindowEvent::Key(Key::D, Action::Press, _) => {
                     space_ship.move_obj(-0.05, 0.0, 0.0);
                 }
-                WindowEvent::CursorPos(_x, _y, _)  |
-                WindowEvent::Scroll(_x, _y, _) => {
-                    event.inhibited=true;
+                WindowEvent::CursorPos(_x, _y, _) | WindowEvent::Scroll(_x, _y, _) => {
+                    event.inhibited = true;
                 }
                 _ => {}
             }
