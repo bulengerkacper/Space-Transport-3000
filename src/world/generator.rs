@@ -5,6 +5,7 @@ use na::{Translation3, Vector3};
 use rand::Rng;
 use std::collections::LinkedList;
 use std::path::Path;
+
 // here are parts not to use in future
 
 pub fn create_spaceship(window: &mut Window) -> SceneNode {
@@ -41,10 +42,15 @@ pub fn generate_plantes(planet_number: u32, window: &mut Window) -> LinkedList<S
     planets
 }
 
-pub fn move_planets(plane: &SceneNode, planets: &mut LinkedList<SceneNode>) {
+pub fn move_planets(
+    plane: &SceneNode,
+    planets: &mut LinkedList<SceneNode>,
+    speed_of_planets: f32,
+) -> bool {
+    let mut ret = false;
     for planet in planets {
-        planet.move_obj(0.0, 0.0, -0.01);
-        if planet.data().local_transformation().translation.vector.z <= 0.5 {
+        planet.move_obj(0.0, 0.0, speed_of_planets);
+        if planet.data().local_transformation().translation.vector.z <= 0.0 {
             let mut rng = rand::thread_rng();
             planet.move_obj(
                 rng.gen_range(-3.0, 3.0),
@@ -52,6 +58,10 @@ pub fn move_planets(plane: &SceneNode, planets: &mut LinkedList<SceneNode>) {
                 rng.gen_range(3.0, 6.0),
             );
         }
-        plane.detect_collision_with(planet);
+        if plane.detect_collision_with(planet) {
+            ret = true;
+            break;
+        }
     }
+    ret
 }

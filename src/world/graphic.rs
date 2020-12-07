@@ -19,7 +19,7 @@ impl VisualEngine {
 
 pub trait Move {
     fn add_rotation_in_axis(&mut self, speed: f32, axis: char);
-    fn detect_collision_with(&self, flying_object: &SceneNode);
+    fn detect_collision_with(&self, flying_object: &SceneNode) -> bool;
     fn move_obj(&mut self, x: f32, y: f32, z: f32);
 }
 
@@ -39,7 +39,7 @@ impl Move for SceneNode {
         self.prepend_to_local_rotation(&rot);
     }
 
-    fn detect_collision_with(&self, flying_object: &SceneNode) {
+    fn detect_collision_with(&self, flying_object: &SceneNode) -> bool {
         if self.data().local_transformation().translation.vector.x
             - flying_object
                 .data()
@@ -89,7 +89,9 @@ impl Move for SceneNode {
                     .z
                 >= -0.2
         {
-            println!("collision detected");
+            true
+        } else {
+            false
         }
     }
 }

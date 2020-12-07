@@ -5,6 +5,8 @@ use crate::world::generator;
 use crate::world::graphic::Move;
 use crate::world::graphic::VisualEngine as ve;
 use kiss3d::event::{Action, Key, WindowEvent};
+use kiss3d::text::Font;
+use na::{Point2, Point3};
 use rand::Rng;
 
 fn main() {
@@ -16,9 +18,11 @@ fn main() {
         0.0,
     );
 
+    let font = Font::default();
     let mut space_ship = generator::create_spaceship(&mut window);
-    let mut planets = generator::generate_plantes(40, &mut window);
+    let mut planets = generator::generate_plantes(30, &mut window);
     let mut rng = rand::thread_rng();
+    let mut speed_of_plantes = -0.01;
     while window.render() {
         for planet in &mut planets {
             planet.add_rotation_in_axis(rng.gen_range(0.0, 0.01), 'y');
@@ -43,6 +47,17 @@ fn main() {
                 _ => {}
             }
         }
-        generator::move_planets(&space_ship, &mut planets);
+        speed_of_plantes -= 0.00001;
+        if generator::move_planets(&space_ship, &mut planets, speed_of_plantes) {
+            speed_of_plantes=0.0;
+            println!("how to quit");
+            window.draw_text(
+                "YOU LOSE!",
+                &Point2::new(43.0, 43.0),
+                90.0,
+                &font,
+                &Point3::new(10.0, 0.0, 0.0),
+            );
+        }
     }
 }
