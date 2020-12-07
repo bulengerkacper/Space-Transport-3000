@@ -4,7 +4,6 @@ use nalgebra as na;
 use kiss3d::scene::SceneNode;
 use kiss3d::window::Window;
 use na::{UnitQuaternion, Vector3};
-use std::env;
 
 // here i wrote parts which can be used in future as separate crate
 pub struct VisualEngine {}
@@ -36,39 +35,6 @@ impl Move for SceneNode {
     }
 
     fn detect_collision_with(&self, flying_object: &SceneNode) {
-        println!(
-            "{}",
-            self.data().local_transformation().translation.vector.x
-                - flying_object
-                    .data()
-                    .local_transformation()
-                    .translation
-                    .vector
-                    .x,
-        );
-
-        println!(
-            "{}",
-            self.data().local_transformation().translation.vector.x
-                - flying_object
-                    .data()
-                    .local_transformation()
-                    .translation
-                    .vector
-                    .y,
-        );
-
-        println!(
-            "{}",
-            self.data().local_transformation().translation.vector.x
-                - flying_object
-                    .data()
-                    .local_transformation()
-                    .translation
-                    .vector
-                    .z,
-        );
-
         if self.data().local_transformation().translation.vector.x
             - flying_object
                 .data()
@@ -76,7 +42,7 @@ impl Move for SceneNode {
                 .translation
                 .vector
                 .x
-            <= 0.5
+            <= 0.2
             && self.data().local_transformation().translation.vector.x
                 - flying_object
                     .data()
@@ -84,7 +50,7 @@ impl Move for SceneNode {
                     .translation
                     .vector
                     .x
-                >= -0.50
+                >= -0.2
             && self.data().local_transformation().translation.vector.y
                 - flying_object
                     .data()
@@ -92,7 +58,7 @@ impl Move for SceneNode {
                     .translation
                     .vector
                     .y
-                <= 0.5
+                <= 0.2
             && self.data().local_transformation().translation.vector.y
                 - flying_object
                     .data()
@@ -100,7 +66,7 @@ impl Move for SceneNode {
                     .translation
                     .vector
                     .y
-                >= -0.50
+                >= -0.2
             && self.data().local_transformation().translation.vector.z
                 - flying_object
                     .data()
@@ -108,7 +74,7 @@ impl Move for SceneNode {
                     .translation
                     .vector
                     .z
-                <= 0.5
+                <= 0.2
             && self.data().local_transformation().translation.vector.z
                 - flying_object
                     .data()
@@ -116,10 +82,9 @@ impl Move for SceneNode {
                     .translation
                     .vector
                     .z
-                >= -0.5
+                >= -0.2
         {
             println!("collision detected");
-            quit::with_code(1);
         }
     }
 }

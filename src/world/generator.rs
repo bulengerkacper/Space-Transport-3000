@@ -45,7 +45,7 @@ pub fn generate_plantes(planet_number: u32, window: &mut Window) -> LinkedList<S
 
 pub fn move_planets(plane: &SceneNode, planets: &mut LinkedList<SceneNode>) {
     for planet in planets {
-        planet.append_translation(&Translation3::new(0.0, 0.0, -0.005));
+        planet.append_translation(&Translation3::new(0.0, 0.0, -0.010));
         if planet.data().local_transformation().translation.vector.z <= 0.5 {
             let mut rng = rand::thread_rng();
             planet.append_translation(&Translation3::new(

@@ -24,7 +24,6 @@ fn main() {
     let mut space_ship = generator::create_spaceship(&mut window);
     let mut planets = generator::generate_plantes(40, &mut window);
     let mut rng = rand::thread_rng();
-    // generator::move_spaceship(&mut space_ship,0.0,0.0,0.0);
     while window.render() {
         for planet in &mut planets {
             planet.add_rotation_in_axis(rng.gen_range(0.0, 0.01), 'y');
@@ -43,10 +42,9 @@ fn main() {
                 WindowEvent::Key(Key::D, Action::Press, _) => {
                     generator::move_spaceship(&mut space_ship, -0.05, 0.0, 0.0);
                 }
-                WindowEvent::MouseButton(button, Action::Release, mods) => {
-                    println!("You released the mouse button: {:?}", button);
-                    println!("You released the mouse button with modifiers: {:?}", mods);
-                    // dont override the default mouse handler
+                WindowEvent::CursorPos(_x, _y, _)  |
+                WindowEvent::Scroll(_x, _y, _) => {
+                    event.inhibited=true;
                 }
                 _ => {}
             }
