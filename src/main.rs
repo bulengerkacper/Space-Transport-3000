@@ -22,7 +22,7 @@ fn main() {
     let mut space_ship = generator::create_spaceship(&mut window);
     let mut planets = generator::generate_plantes(30, &mut window);
     let mut rng = rand::thread_rng();
-    let mut speed_of_plantes = -0.01;
+    let mut speed_of_plantes :f32 = -0.01;
     while window.render() {
         for planet in &mut planets {
             planet.add_rotation_in_axis(rng.gen_range(0.0, 0.01), 'y');
@@ -48,13 +48,21 @@ fn main() {
             }
         }
         speed_of_plantes -= 0.00001;
+        let points = format!("{:.7}", speed_of_plantes.abs());
+        let pts :&str= &points[..];
+        window.draw_text(
+            pts,
+            &Point2::new(43.0, 43.0),
+            90.0,
+            &font,
+            &Point3::new(10.0, 0.0, 0.0),
+        );
         if generator::move_planets(&space_ship, &mut planets, speed_of_plantes) {
             speed_of_plantes=0.0;
-            println!("how to quit");
             window.draw_text(
                 "YOU LOSE!",
-                &Point2::new(43.0, 43.0),
-                90.0,
+                &Point2::new(600.0, 600.0),
+                120.0,
                 &font,
                 &Point3::new(10.0, 0.0, 0.0),
             );
