@@ -42,4 +42,3 @@ pub fn generate_plantes(planet_number: u32, window: &mut Window) -> LinkedList<S
     }
     planets
 }
-
