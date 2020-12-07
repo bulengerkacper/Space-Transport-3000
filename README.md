@@ -2,14 +2,14 @@
 
 Hello. Enjoy my first game fully written in rust
 
-# Requirements
+## Requirements
 Rust
 
-# Compilation
+## Compilation
 
 cargo build
 
-# Play
+## Play
 
 cargo run
 
@@ -17,17 +17,12 @@ or just run your binary from compilation
 
 
 
-## Diags
+## Code organization
 
 Source code divided into two parts:
-1.Reusable extension of SceneNode struct from kiss3d
+1.Reusable extension of SceneNode struct from kiss3d - GRAPHIC
 	(When it will be a little bigger it wil be extracted fo separate crate)
-2.Not reusable dedicated for game
+2.Not reusable dedicated for game - GENERATOR
 
 
-```mermaid
-graph LR
-
-B((GENERATOR)) --> D{CARGO TRANSPORT 3000}
-C((GRAPHIC)) --> D
 ```
