@@ -4,6 +4,8 @@ use nalgebra as na;
 use kiss3d::scene::SceneNode;
 use kiss3d::window::Window;
 use na::{UnitQuaternion, Vector3};
+use std::env;
+
 // here i wrote parts which can be used in future as separate crate
 pub struct VisualEngine {}
 
@@ -18,6 +20,7 @@ impl VisualEngine {
 
 pub trait Move {
     fn add_rotation_in_axis(&mut self, speed: f32, axis: char);
+    fn detect_collision_with(&self, flying_object: &SceneNode);
 }
 
 impl Move for SceneNode {
@@ -30,5 +33,93 @@ impl Move for SceneNode {
             _ => return,
         }
         self.prepend_to_local_rotation(&rot);
+    }
+
+    fn detect_collision_with(&self, flying_object: &SceneNode) {
+        println!(
+            "{}",
+            self.data().local_transformation().translation.vector.x
+                - flying_object
+                    .data()
+                    .local_transformation()
+                    .translation
+                    .vector
+                    .x,
+        );
+
+        println!(
+            "{}",
+            self.data().local_transformation().translation.vector.x
+                - flying_object
+                    .data()
+                    .local_transformation()
+                    .translation
+                    .vector
+                    .y,
+        );
+
+        println!(
+            "{}",
+            self.data().local_transformation().translation.vector.x
+                - flying_object
+                    .data()
+                    .local_transformation()
+                    .translation
+                    .vector
+                    .z,
+        );
+
+        if self.data().local_transformation().translation.vector.x
+            - flying_object
+                .data()
+                .local_transformation()
+                .translation
+                .vector
+                .x
+            <= 1.0
+            && self.data().local_transformation().translation.vector.x
+                - flying_object
+                    .data()
+                    .local_transformation()
+                    .translation
+                    .vector
+                    .x
+                >= 0.00
+            && self.data().local_transformation().translation.vector.y
+                - flying_object
+                    .data()
+                    .local_transformation()
+                    .translation
+                    .vector
+                    .y
+                <= 1.0
+            && self.data().local_transformation().translation.vector.y
+                - flying_object
+                    .data()
+                    .local_transformation()
+                    .translation
+                    .vector
+                    .y
+                >= 0.00
+            && self.data().local_transformation().translation.vector.z
+                - flying_object
+                    .data()
+                    .local_transformation()
+                    .translation
+                    .vector
+                    .z
+                <= 1.0
+            && self.data().local_transformation().translation.vector.z
+                - flying_object
+                    .data()
+                    .local_transformation()
+                    .translation
+                    .vector
+                    .z
+                >= 1.0
+        {
+            println!("collision detected");
+            quit::with_code(1);
+        }
     }
 }

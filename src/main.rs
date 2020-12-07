@@ -22,7 +22,7 @@ fn main() {
     );
 
     let mut space_ship = generator::create_spaceship(&mut window);
-    let mut planets = generator::generate_plantes(10, &mut window);
+    let mut planets = generator::generate_plantes(40, &mut window);
     let mut rng = rand::thread_rng();
     // generator::move_spaceship(&mut space_ship,0.0,0.0,0.0);
     while window.render() {
@@ -51,6 +51,6 @@ fn main() {
                 _ => {}
             }
         }
-        generator::move_planets(&mut planets);
+        generator::move_planets(&space_ship, &mut planets);
     }
 }
