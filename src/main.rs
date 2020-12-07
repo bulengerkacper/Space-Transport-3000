@@ -5,11 +5,6 @@ use crate::world::generator;
 use crate::world::graphic::Move;
 use crate::world::graphic::VisualEngine as ve;
 use kiss3d::event::{Action, Key, WindowEvent};
-use kiss3d::scene::SceneNode;
-use na::Translation3;
-use std::collections::LinkedList;
-use std::mem;
-
 use rand::Rng;
 
 fn main() {
@@ -31,16 +26,16 @@ fn main() {
         for mut event in window.events().iter() {
             match event.value {
                 WindowEvent::Key(Key::W, Action::Press, _) => {
-                    generator::move_spaceship(&mut space_ship, 0.0, 0.05, 0.0);
+                    space_ship.move_obj(0.0, 0.05, 0.0);
                 }
                 WindowEvent::Key(Key::S, Action::Press, _) => {
-                    generator::move_spaceship(&mut space_ship, 0.0, -0.05, 0.0);
+                    space_ship.move_obj(0.0, -0.05, 0.0);
                 }
                 WindowEvent::Key(Key::A, Action::Press, _) => {
-                    generator::move_spaceship(&mut space_ship, 0.05, 0.0, 0.0);
+                    space_ship.move_obj(0.05, 0.0, 0.0);
                 }
                 WindowEvent::Key(Key::D, Action::Press, _) => {
-                    generator::move_spaceship(&mut space_ship, -0.05, 0.0, 0.0);
+                    space_ship.move_obj(-0.05, 0.0, 0.0);
                 }
                 WindowEvent::CursorPos(_x, _y, _)  |
                 WindowEvent::Scroll(_x, _y, _) => {

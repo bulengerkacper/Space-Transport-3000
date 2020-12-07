@@ -6,9 +6,7 @@ use rand::Rng;
 use std::collections::LinkedList;
 use std::path::Path;
 // here are parts not to use in future
-pub fn move_spaceship(plane: &mut SceneNode, x: f32, y: f32, z: f32) {
-    plane.append_translation(&Translation3::new(x, y, z));
-}
+
 pub fn create_spaceship(window: &mut Window) -> SceneNode {
     let space_ship_obj = Path::new("./src/resources/spaceship/statek.obj");
     let mut space_ship = window.add_obj(

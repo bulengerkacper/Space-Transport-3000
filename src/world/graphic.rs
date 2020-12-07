@@ -3,7 +3,7 @@ use nalgebra as na;
 
 use kiss3d::scene::SceneNode;
 use kiss3d::window::Window;
-use na::{UnitQuaternion, Vector3};
+use na::{UnitQuaternion, Vector3, Translation3};
 
 // here i wrote parts which can be used in future as separate crate
 pub struct VisualEngine {}
@@ -20,9 +20,14 @@ impl VisualEngine {
 pub trait Move {
     fn add_rotation_in_axis(&mut self, speed: f32, axis: char);
     fn detect_collision_with(&self, flying_object: &SceneNode);
+    fn move_obj(&mut self, x: f32,y: f32,z: f32);
 }
 
 impl Move for SceneNode {
+    fn move_obj(&mut self, x: f32, y: f32, z: f32) {
+        self.append_translation(&Translation3::new(x, y, z));
+    }
+
     fn add_rotation_in_axis(&mut self, speed: f32, axis: char) {
         let rot;
         match axis {
