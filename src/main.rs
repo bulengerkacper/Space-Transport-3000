@@ -58,7 +58,7 @@ fn main() {
         }
         speed_of_plantes -= 0.00001;
         let points = format!(
-            "{:.7} of c\nSTERING\n  W \n ASD\n Z C",
+            "{:.7} of c\nSTERING\n  W \n ASD\n Z SPACE C",
             speed_of_plantes.abs()
         );
         let pts: &str = &points[..];
