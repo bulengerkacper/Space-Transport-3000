@@ -42,10 +42,10 @@ fn main() {
                     space_ship.move_obj(-0.05, 0.0, 0.0);
                 }
                 WindowEvent::Key(Key::Z, Action::Press, _) => {
-                    space_ship.add_rotation_in_axis(0.1,'z');
+                    space_ship.add_rotation_in_axis(0.1, 'z');
                 }
                 WindowEvent::Key(Key::C, Action::Press, _) => {
-                    space_ship.add_rotation_in_axis(-0.1,'z');
+                    space_ship.add_rotation_in_axis(-0.1, 'z');
                 }
                 WindowEvent::Key(Key::L, Action::Press, _) => {
                     quit::with_code(1);
