@@ -32,9 +32,9 @@ pub fn generate_plantes(planet_number: u32, window: &mut Window) -> LinkedList<S
         let sphere_texture = include_bytes!("../resources/textures/sphere_texture.png");
         sphere.set_texture_from_memory(sphere_texture, "sphere_texture");
         sphere.append_translation(&Translation3::new(
-            rng.gen_range(-3.0, 3.0),
-            rng.gen_range(-2.0, 2.0),
-            rng.gen_range(3.0, 6.0),
+            rng.gen_range(-7.0, 7.0),  // first generation to be visible in whole screen
+            rng.gen_range(-7.0, 7.0),
+            rng.gen_range(10.0, 20.0),
         ));
         n += 1;
         planets.push_back(sphere);
@@ -53,9 +53,9 @@ pub fn move_planets(
         if planet.data().local_transformation().translation.vector.z <= 0.0 {
             let mut rng = rand::thread_rng();
             planet.move_obj(
-                rng.gen_range(-3.0, 3.0),
+                rng.gen_range(-3.0, 3.0),  //not needed more
                 rng.gen_range(-2.0, 2.0),
-                rng.gen_range(3.0, 6.0),
+                rng.gen_range(15.0, 40.0),
             );
         }
         if plane.detect_collision_with(planet) {

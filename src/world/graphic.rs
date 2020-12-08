@@ -47,7 +47,7 @@ impl Move for SceneNode {
                 .translation
                 .vector
                 .x
-            <= 0.2
+            <= 0.3
             && self.data().local_transformation().translation.vector.x
                 - flying_object
                     .data()
@@ -55,7 +55,7 @@ impl Move for SceneNode {
                     .translation
                     .vector
                     .x
-                >= -0.2
+                >= -0.3
             && self.data().local_transformation().translation.vector.y
                 - flying_object
                     .data()
@@ -63,7 +63,7 @@ impl Move for SceneNode {
                     .translation
                     .vector
                     .y
-                <= 0.2
+                <= 0.3
             && self.data().local_transformation().translation.vector.y
                 - flying_object
                     .data()
@@ -71,7 +71,7 @@ impl Move for SceneNode {
                     .translation
                     .vector
                     .y
-                >= -0.2
+                >= -0.3
             && self.data().local_transformation().translation.vector.z
                 - flying_object
                     .data()
@@ -79,7 +79,7 @@ impl Move for SceneNode {
                     .translation
                     .vector
                     .z
-                <= 0.2
+                <= 0.3
             && self.data().local_transformation().translation.vector.z
                 - flying_object
                     .data()
@@ -87,7 +87,7 @@ impl Move for SceneNode {
                     .translation
                     .vector
                     .z
-                >= -0.2
+                >= -0.3
         {
             true
         } else {
