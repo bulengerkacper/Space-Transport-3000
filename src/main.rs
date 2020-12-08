@@ -17,6 +17,7 @@ fn main() {
         0.0,
         0.0,
     );
+
     let mut space_ship = generator::create_spaceship(&mut game_window);
     let mut planets = generator::generate_plantes(30, &mut game_window);
     let mut rng = rand::thread_rng();
@@ -39,6 +40,12 @@ fn main() {
                 }
                 WindowEvent::Key(Key::D, Action::Press, _) => {
                     space_ship.move_obj(-0.05, 0.0, 0.0);
+                }
+                WindowEvent::Key(Key::Z, Action::Press, _) => {
+                    space_ship.add_rotation_in_axis(-0.1,'z');
+                }
+                WindowEvent::Key(Key::C, Action::Press, _) => {
+                    space_ship.add_rotation_in_axis(0.1,'z');
                 }
                 WindowEvent::Key(Key::L, Action::Press, _) => {
                     quit::with_code(1);
