@@ -19,7 +19,7 @@ fn main() {
     );
 
     let mut space_ship = generator::create_spaceship(&mut game_window);
-    let mut planets = generator::generate_plantes(30, &mut game_window);
+    let mut planets = generator::generate_plantes(50, &mut game_window);
     let mut rng = rand::thread_rng();
     let mut speed_of_plantes: f32 = 0.00;
     let font = Font::default();
