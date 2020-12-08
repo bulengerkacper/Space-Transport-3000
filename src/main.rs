@@ -47,6 +47,9 @@ fn main() {
                 WindowEvent::Key(Key::C, Action::Press, _) => {
                     space_ship.add_rotation_in_axis(-0.1, 'z');
                 }
+                WindowEvent::Key(Key::Space, Action::Press, _) => {
+                    speed_of_plantes*=1.0001;
+                }
                 WindowEvent::Key(Key::L, Action::Press, _) => {
                     quit::with_code(1);
                 }

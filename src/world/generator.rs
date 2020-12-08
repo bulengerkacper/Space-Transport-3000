@@ -34,7 +34,7 @@ pub fn generate_plantes(planet_number: u32, window: &mut Window) -> LinkedList<S
         sphere.append_translation(&Translation3::new(
             rng.gen_range(-7.0, 7.0), // first generation to be visible in whole screen
             rng.gen_range(-5.0, 5.0),
-            rng.gen_range(10.0, 20.0),
+            rng.gen_range(5.0, 10.0),
         ));
         n += 1;
         planets.push_back(sphere);
@@ -55,7 +55,7 @@ pub fn move_planets(
             planet.move_obj(
                 rng.gen_range(-3.0, 3.0), //not needed more
                 rng.gen_range(-1.5, 1.5),
-                rng.gen_range(15.0, 40.0),
+                rng.gen_range(10.0, 40.0),
             );
         }
         if plane.detect_collision_with(planet) {
