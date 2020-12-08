@@ -9,7 +9,7 @@ use std::path::Path;
 // here are parts not to use in future
 
 pub fn create_spaceship(window: &mut Window) -> SceneNode {
-    let space_ship_obj = Path::new("./src/resources/spaceship/statek3.obj");
+    let space_ship_obj = Path::new("./src/resources/spaceship/statek.obj");
     let mut space_ship = window.add_obj(
         &space_ship_obj,
         &space_ship_obj,
