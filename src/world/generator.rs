@@ -9,7 +9,7 @@ use std::path::Path;
 // here are parts not to use in future
 
 pub fn create_spaceship(window: &mut Window) -> SceneNode {
-    let space_ship_obj = Path::new("./src/resources/spaceship/statek.obj");
+    let space_ship_obj = Path::new("./src/resources/spaceship/statek2.obj");
     let mut space_ship = window.add_obj(
         &space_ship_obj,
         &space_ship_obj,
@@ -53,7 +53,7 @@ pub fn move_planets(
         if planet.data().local_transformation().translation.vector.z <= 0.0 {
             let mut rng = rand::thread_rng();
             planet.move_obj(
-                rng.gen_range(-3.0, 3.0), //not needed more
+                rng.gen_range(-2.0, 2.0), //not needed more
                 rng.gen_range(-2.0, 2.0),
                 rng.gen_range(15.0, 40.0),
             );
