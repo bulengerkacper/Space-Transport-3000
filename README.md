@@ -1,7 +1,6 @@
 # Space Transport 3000
 
-Hello. Enjoy my first game fully written in rust
-
+Hello. Enjoy my first game fully written in rust & kiss3d
 ![Screenshot](screen.PNG)
 
 
