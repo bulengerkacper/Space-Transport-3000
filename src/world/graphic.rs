@@ -38,9 +38,9 @@ impl Move for SceneNode {
     fn add_rotation_in_axis(&mut self, speed: f32, axis: char) {
         let rot;
         match axis {
-            'x' => rot = UnitQuaternion::from_axis_angle(&Vector3::x_axis(), speed),
-            'y' => rot = UnitQuaternion::from_axis_angle(&Vector3::y_axis(), speed),
-            'z' => rot = UnitQuaternion::from_axis_angle(&Vector3::z_axis(), speed),
+            'x' | 'X' => rot = UnitQuaternion::from_axis_angle(&Vector3::x_axis(), speed),
+            'y' | 'Y' => rot = UnitQuaternion::from_axis_angle(&Vector3::y_axis(), speed),
+            'z' | 'Z' => rot = UnitQuaternion::from_axis_angle(&Vector3::z_axis(), speed),
             _ => return,
         }
         self.prepend_to_local_rotation(&rot);
