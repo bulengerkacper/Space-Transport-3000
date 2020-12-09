@@ -16,8 +16,8 @@ impl VisualEngine {
         window.set_background_color(r, g, b);
         window
     }
-    pub fn prepare_camera() -> FirstPerson {
-        let eye = Point3::new(0.0, 0.0, 0.0);
+    pub fn prepare_first_person_camera(x: f32, y: f32, z: f32) -> FirstPerson {
+        let eye = Point3::new(x, y, z);
         let at = Point3::origin();
         let mut _first_person = FirstPerson::new(eye, at);
         _first_person

@@ -12,7 +12,7 @@ use rand::Rng;
 fn main() {
     let font = Font::default();
     let mut game_window = ve::create_window(
-        "Space killer",
+        "Cargo transport. Test new drive.",
         kiss3d::light::Light::StickToCamera,
         0.0,
         0.0,
@@ -20,7 +20,7 @@ fn main() {
     );
 
     let mut space_ship = generator::create_spaceship(&mut game_window);
-    let mut camera = ve::prepare_camera();
+    let mut camera = ve::prepare_first_person_camera(0.0,0.0,0.0);
     game_window.draw_text(
         "GAME LOADING. Please wait",
         &Point2::new(400.0, 400.0),
@@ -75,7 +75,7 @@ fn main() {
         }
         speed_of_plantes -= 0.00001;
         let points = format!(
-            "{:.7} of c\nSTERING\n  W \n ASD\n Z SPACE C",
+            "{:.7} of c\n CONTROLS\n  W \n ASD\n Z SPACE C",
             speed_of_plantes.abs()
         );
         let pts: &str = &points[..];

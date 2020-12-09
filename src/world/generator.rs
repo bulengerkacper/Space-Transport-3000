@@ -55,7 +55,7 @@ pub fn move_planets(
             planet.move_obj(
                 rng.gen_range(-3.0, 3.0), //not needed more
                 rng.gen_range(-1.5, 1.5),
-                rng.gen_range(10.0, 40.0),
+                rng.gen_range(7.0, 40.0),
             );
         }
         if plane.detect_collision_with(planet) {
