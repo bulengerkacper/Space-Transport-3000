@@ -1,9 +1,10 @@
 use kiss3d;
 use nalgebra as na;
 
+use kiss3d::camera::FirstPerson;
 use kiss3d::scene::SceneNode;
 use kiss3d::window::Window;
-use na::{Translation3, UnitQuaternion, Vector3};
+use na::{Point3, Translation3, UnitQuaternion, Vector3};
 
 // here i wrote parts which can be used in future as separate crate
 pub struct VisualEngine {}
@@ -14,6 +15,12 @@ impl VisualEngine {
         window.set_light(x);
         window.set_background_color(r, g, b);
         window
+    }
+    pub fn prepare_camera() -> FirstPerson {
+        let eye = Point3::new(0.0, 0.0, 0.0);
+        let at = Point3::origin();
+        let mut _first_person = FirstPerson::new(eye, at);
+        _first_person
     }
 }
 
