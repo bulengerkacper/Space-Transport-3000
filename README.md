@@ -2,7 +2,8 @@
 
 Hello. Enjoy my first game fully written in rust
 
-![alt text](http://url/to/img.png)
+![Screenshot](screen.PNG)
+
 
 ## Requirements
 Rust
