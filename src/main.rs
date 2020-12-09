@@ -20,7 +20,7 @@ fn main() {
     );
 
     let mut space_ship = generator::create_spaceship(&mut game_window);
-    let mut camera = ve::prepare_first_person_camera(0.0,0.0,0.0);
+    let mut camera = ve::prepare_first_person_camera(0.0, 0.0, 0.0);
     game_window.draw_text(
         "GAME LOADING. Please wait",
         &Point2::new(400.0, 400.0),

@@ -47,54 +47,33 @@ impl Move for SceneNode {
     }
 
     fn detect_collision_with(&self, flying_object: &SceneNode) -> bool {
-        if self.data().local_transformation().translation.vector.x
+        if (self.data().local_transformation().translation.vector.x
             - flying_object
                 .data()
                 .local_transformation()
                 .translation
                 .vector
-                .x
+                .x)
+            .abs()
             <= 0.4
-            && self.data().local_transformation().translation.vector.x
+            && (self.data().local_transformation().translation.vector.y
                 - flying_object
                     .data()
                     .local_transformation()
                     .translation
                     .vector
-                    .x
-                >= -0.4
-            && self.data().local_transformation().translation.vector.y
+                    .y)
+                .abs()
+                <= 0.16
+            && (self.data().local_transformation().translation.vector.z
                 - flying_object
                     .data()
                     .local_transformation()
                     .translation
                     .vector
-                    .y
-                <= 0.15
-            && self.data().local_transformation().translation.vector.y
-                - flying_object
-                    .data()
-                    .local_transformation()
-                    .translation
-                    .vector
-                    .y
-                >= -0.15
-            && self.data().local_transformation().translation.vector.z
-                - flying_object
-                    .data()
-                    .local_transformation()
-                    .translation
-                    .vector
-                    .z
+                    .z)
+                .abs()
                 <= 0.1
-            && self.data().local_transformation().translation.vector.z
-                - flying_object
-                    .data()
-                    .local_transformation()
-                    .translation
-                    .vector
-                    .z
-                >= -0.1
         {
             true
         } else {
