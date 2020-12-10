@@ -10,9 +10,9 @@ use na::{Point3, Translation3, UnitQuaternion, Vector3};
 pub struct VisualEngine {}
 
 impl VisualEngine {
-    pub fn create_window(name: &str, x: kiss3d::light::Light, r: f32, g: f32, b: f32) -> Window {
+    pub fn create_window(name: &str, light: kiss3d::light::Light, r: f32, g: f32, b: f32) -> Window {
         let mut window = Window::new(name);
-        window.set_light(x);
+        window.set_light(light);
         window.set_background_color(r, g, b);
         window
     }
